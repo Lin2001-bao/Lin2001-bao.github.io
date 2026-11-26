@@ -300,13 +300,6 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
       <label>自己的战力</label>
       <input id="power" type="text" inputmode="numeric" value="1000000" placeholder="输入战力，例如 1000000">
     </div>
-    <div class="chips" id="quick">
-      <span class="chip" data-v="1000000">100万</span>
-      <span class="chip" data-v="5000000">500万</span>
-      <span class="chip" data-v="10000000">1000万</span>
-      <span class="chip" data-v="50000000">5000万</span>
-      <span class="chip" data-v="100000000">1亿</span>
-    </div>
     <div style="text-align:center;margin-top:14px"><button class="btn" id="go">计 算</button></div>
     <div class="result" id="result" style="display:none">
       <div class="small" style="margin-top:0;margin-bottom:6px">最多可挑战</div>
@@ -332,11 +325,6 @@ modeEls.forEach(function(el){
     mode=el.dataset.m;
   });
 });
-document.querySelectorAll('#quick .chip').forEach(function(c){
-  c.addEventListener('click',function(){
-    document.getElementById('power').value=c.dataset.v;
-  });
-});
 function fmt(v){
   if(v>=100000000){ return (v/100000000).toFixed(2)+'亿'; }
   if(v>=10000){ return (v/10000).toFixed(2)+'万'; }
@@ -345,11 +333,11 @@ function fmt(v){
 document.getElementById('go').addEventListener('click',function(){
   var raw=document.getElementById('power').value.replace(/[,，\s]/g,'');
   var p=parseInt(raw,10);
-  if(isNaN(p)||p<=0){ alert('请输入有效的战力数值'); return; }
+  if(isNaN(p)||p<=0){ p=0; }
   var m=MUL[mode];
   var res=Math.floor(p*m+1e-6);
   document.getElementById('final').textContent=fmt(res);
-  document.getElementById('formula').textContent=p+' 战力 × '+m+' = '+res.toLocaleString();
+  document.getElementById('formula').textContent=p===0?'未填写战力，按 0 计算':p+' 战力 × '+m+' = '+res.toLocaleString();
   document.getElementById('result').style.display='block';
 });
 </script>
