@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>会玩修仙奇遇录 · 奇遇答案与奖励速查</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+:root{
+  --jade:#5fd6b0; --jade-soft:#a8f0d8; --gold:#e7c98a; --gold-soft:#f3e0b6;
+  --text:#f4fbf8; --muted:rgba(226,247,240,.72);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  min-height:100vh;color:var(--text);line-height:1.75;
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:#050f10;
+  background-image:url("https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RDvsbU8zoovbT0xJpyAcTUeJnnb");
+  background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(3,10,12,.34) 0%,rgba(4,14,15,.46) 45%,rgba(2,8,9,.66) 100%);
+}
+body::after{
+  content:"";position:fixed;left:50%;top:-140px;transform:translateX(-50%);
+  width:920px;height:440px;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(120,255,214,.16),transparent 70%);filter:blur(12px);
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 16px 64px;position:relative;z-index:1}
+
+/* 玻璃通用 */
+.glass{
+  background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
+  -webkit-backdrop-filter:blur(18px) saturate(145%);backdrop-filter:blur(18px) saturate(145%);
+  border:1px solid rgba(255,255,255,.26);border-radius:20px;
+  box-shadow:0 12px 34px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.34), inset 0 -1px 0 rgba(255,255,255,.05);
+}
+
+/* 顶栏 */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 6px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.brand .mk{
+  width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Serif SC",serif;font-size:16px;color:var(--gold-soft);
+  background:rgba(255,255,255,.1);border:1px solid rgba(231,201,138,.5);
+  box-shadow:0 0 18px rgba(231,201,138,.25), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.brand .logo{width:44px;height:44px;border-radius:12px;object-fit:cover;box-shadow:0 0 18px rgba(231,201,138,.42),inset 0 1px 0 rgba(255,255,255,.35)}
+.brand em{font-style:normal;font-family:"Noto Serif SC",serif;font-size:.98rem;letter-spacing:.18em;color:#f2e6c6}
+.back{
+  text-decoration:none;font-size:.8rem;color:#eafff8;padding:9px 18px;border-radius:999px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32);transition:.25s;white-space:nowrap;
+}
+.back:hover{background:rgba(255,255,255,.18);border-color:rgba(168,240,216,.6)}
+
+/* 金线 */
+.hairline{height:1px;margin:20px 0;background:linear-gradient(90deg,transparent,rgba(231,201,138,.45) 20%,rgba(231,201,138,.45) 80%,transparent)}
+
+/* 标题区 */
+.hero{text-align:center;padding:30px 0 6px}
+.eyebrow{font-size:.66rem;letter-spacing:.42em;color:rgba(231,201,138,.78);margin-bottom:14px}
+.title{
+  font-family:"Noto Serif SC",serif;font-weight:700;margin:0 0 10px;
+  font-size:clamp(1.55rem,4.6vw,2.2rem);letter-spacing:.1em;line-height:1.4;
+  background:linear-gradient(180deg,#ffffff 0%,#d9f7ea 52%,#9fe0c6 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 12px rgba(0,0,0,.45));
+}
+.desc{color:rgba(232,250,244,.85);font-size:.9rem;margin:6px auto 0;max-width:580px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.ornament{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0 0}
+.ornament i{display:block;height:1px;width:56px;background:linear-gradient(90deg,transparent,rgba(231,201,138,.6))}
+.ornament i:last-child{background:linear-gradient(90deg,rgba(231,201,138,.6),transparent)}
+.ornament b{width:6px;height:6px;border-radius:50%;background:rgba(231,201,138,.85);box-shadow:0 0 10px rgba(231,201,138,.7)}
+
+/* 数据块 */
+.stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px 0 8px}
+.stat{flex:1 1 110px;max-width:180px;text-align:center;padding:16px 10px;border-radius:18px}
+.stat .n{display:block;font-family:"Noto Serif SC",serif;font-size:1.36rem;color:var(--jade-soft);text-shadow:0 0 20px rgba(95,214,176,.5)}
+.stat .l{font-size:.7rem;color:var(--muted);letter-spacing:.16em}
+.stat.js-goto{cursor:pointer;transition:.25s}
+.stat.js-goto:hover{transform:translateY(-2px);border-color:rgba(231,201,138,.5)}
+
+/* 导航卡 */
+.navs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:8px 0 4px}
+.navs .nav:last-child{grid-column:1 / -1}
+.navs .nav:last-child .ic{background:rgba(231,201,138,.16);border-color:rgba(231,201,138,.5)}
+.navs .nav:last-child .tx b{color:#f7e8c8}
+.nav{
+  display:flex;align-items:center;gap:13px;padding:16px 16px;border-radius:18px;text-decoration:none;color:var(--text);
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
+  -webkit-backdrop-filter:blur(16px) saturate(145%);backdrop-filter:blur(16px) saturate(145%);
+  border:1px solid rgba(255,255,255,.24);
+  box-shadow:0 10px 28px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:transform .22s, border-color .25s, box-shadow .28s;position:relative;overflow:hidden;
+}
+.nav:hover{transform:translateY(-2px);border-color:rgba(231,201,138,.6);box-shadow:0 16px 38px rgba(0,0,0,.38), 0 0 24px rgba(231,201,138,.16), inset 0 1px 0 rgba(255,255,255,.4)}
+.nav .ic{
+  flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:rgba(95,214,176,.16);border:1px solid rgba(168,240,216,.42);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+}
+.nav .ic svg{width:19px;height:19px;stroke:#b9ffe6;fill:none;stroke-width:1.7}
+.nav .tx{flex:1;min-width:0}
+.nav .tx b{display:block;font-family:"Noto Serif SC",serif;font-size:.98rem;letter-spacing:.04em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.nav .tx span{display:block;font-size:.7rem;color:rgba(232,250,244,.62);margin-top:2px}
+.nav .ar{flex:0 0 auto;color:rgba(231,201,138,.9);font-size:1rem}
+
+/* 搜索 */
+.search-box{position:relative;margin:22px auto 12px;max-width:620px}
+.search-box input{
+  width:100%;padding:16px 50px;border-radius:999px;color:#fff;font-size:.95rem;outline:none;
+  background:rgba(255,255,255,.11);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 8px 26px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.4);
+  transition:border-color .25s, box-shadow .25s, background .25s;
+}
+.search-box input::placeholder{color:rgba(230,250,244,.52)}
+.search-box input:focus{background:rgba(255,255,255,.16);border-color:rgba(231,201,138,.62);box-shadow:0 0 0 3px rgba(231,201,138,.18),0 8px 26px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.5)}
+.search-box .ico{position:absolute;left:19px;top:50%;transform:translateY(-50%);width:17px;height:17px;opacity:.8;pointer-events:none}
+.search-box .clr{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:33px;height:33px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#e9fbf5;font-size:15px;cursor:pointer;display:none}
+
+.rtip{text-align:center;font-size:.8rem;color:rgba(232,250,244,.86);min-height:1.4em;margin:4px 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.rtip b{color:var(--gold-soft);font-weight:600}
+
+/* 分类 */
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.chip{
+  padding:8px 15px;border-radius:999px;font-size:.78rem;cursor:pointer;user-select:none;
+  color:rgba(235,252,246,.84);background:rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 4px 14px rgba(0,0,0,.22);transition:.22s;
+}
+.chip:hover{border-color:rgba(231,201,138,.55);color:#fff}
+.chip.on{
+  background:linear-gradient(180deg,rgba(231,201,138,.32),rgba(95,214,176,.16));
+  border-color:rgba(231,201,138,.8);color:#fff;
+  box-shadow:0 0 20px rgba(231,201,138,.3), inset 0 1px 0 rgba(255,255,255,.5);
+}
+.chip i{font-style:normal;opacity:.7;font-size:.72rem;margin-left:4px}
+
+/* 卡片 */
+.list{display:flex;flex-direction:column;gap:12px}
+.card{
+  border-radius:18px;overflow:hidden;position:relative;
+  background:linear-gradient(180deg,rgba(12,30,30,.4),rgba(6,18,19,.52));
+  -webkit-backdrop-filter:blur(18px) saturate(145%);backdrop-filter:blur(18px) saturate(145%);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 10px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:border-color .25s, box-shadow .28s;
+}
+.card:hover{border-color:rgba(231,201,138,.45);box-shadow:0 14px 36px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.4)}
+.card::before{content:"";position:absolute;left:0;top:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(231,201,138,.5),transparent)}
+.head{padding:16px 16px 13px;cursor:pointer}
+.qtxt{font-family:"Noto Serif SC",serif;font-size:1rem;line-height:1.65;color:#fff;display:flex;gap:9px;align-items:flex-start;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+.qtxt .no{color:var(--gold);flex:0 0 auto;font-size:.86rem;opacity:.95}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:11px}
+.badge{font-size:.72rem;padding:3px 10px;border-radius:8px;letter-spacing:.04em;color:#d8fff1;background:rgba(95,214,176,.18);border:1px solid rgba(168,240,216,.45)}
+.badge.bad{color:#ffd6cf;background:rgba(255,120,105,.16);border-color:rgba(255,157,146,.45)}
+.badge.none{color:rgba(235,250,246,.72);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.24)}
+.more{margin-left:auto;font-size:.74rem;color:rgba(235,252,246,.82);display:flex;align-items:center;gap:5px}
+.more svg{width:14px;height:14px;transition:transform .3s}
+.card.open .more svg{transform:rotate(180deg)}
+.body{display:none;padding:0 16px 16px}
+.card.open .body{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:12px;font-size:.9rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15)}
+.opt.right{background:linear-gradient(180deg,rgba(111,240,182,.22),rgba(95,214,176,.1));border-color:rgba(111,240,182,.6);box-shadow:0 0 18px rgba(95,214,176,.22),inset 0 1px 0 rgba(255,255,255,.4)}
+.opt .lab{flex:0 0 auto;width:21px;height:21px;border-radius:50%;font-size:.72rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.16);color:#eafaf5;border:1px solid rgba(255,255,255,.26)}
+.opt.right .lab{background:rgba(111,240,182,.9);color:#03150f;font-weight:700;border-color:transparent}
+.opt .txt{flex:1;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.opt .rw{font-size:.72rem;color:var(--jade-soft)}
+.opt .rw.bad{color:#ffb3aa}
+.tip{margin-top:10px;font-size:.76rem;color:rgba(232,250,244,.86);text-shadow:0 1px 3px rgba(0,0,0,.45)}
+
+/* 通用按钮 */
+.more-wrap{text-align:center;margin-top:24px}
+.btn{
+  padding:12px 32px;border-radius:999px;cursor:pointer;font-size:.86rem;letter-spacing:.08em;
+  font-family:"Noto Serif SC",serif;color:#eafff8;background:rgba(255,255,255,.1);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid rgba(231,201,138,.5);
+  box-shadow:0 8px 24px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.35);transition:.25s;
+}
+.btn:hover{background:rgba(255,255,255,.17);border-color:rgba(231,201,138,.85)}
+
+.empty{text-align:center;padding:50px 0;color:rgba(225,247,240,.74);border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15)}
+.empty span{display:block;font-size:1.6rem;margin-bottom:8px;opacity:.55}
+
+/* 内容卡片（子页面） */
+.section{padding:20px 18px;border-radius:20px;margin-bottom:12px}
+.section h2{
+  font-family:"Noto Serif SC",serif;font-size:1.04rem;margin:0 0 12px;letter-spacing:.06em;color:#fff;
+  display:flex;align-items:center;gap:9px;text-shadow:0 1px 3px rgba(0,0,0,.42);
+}
+.section h2::before{content:"";width:3px;height:16px;border-radius:2px;background:linear-gradient(180deg,var(--gold),var(--jade));box-shadow:0 0 10px rgba(231,201,138,.6)}
+.section h3{font-family:"Noto Serif SC",serif;font-size:.95rem;margin:18px 0 6px;color:var(--gold-soft)}
+.section p{margin:0 0 10px;font-size:.9rem;color:rgba(238,252,247,.9);text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.section p.note{font-size:.82rem;color:rgba(232,250,244,.72)}
+
+/* 表格 */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.86rem}
+thead th{
+  position:sticky;top:0;background:rgba(14,36,34,.86);color:#eafff8;font-weight:600;
+  padding:12px 12px;text-align:left;white-space:nowrap;font-family:"Noto Serif SC",serif;letter-spacing:.06em;
+  border-bottom:1px solid rgba(231,201,138,.35);
+}
+tbody td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(240,253,249,.92);white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
+tbody td:first-child{color:#fff;font-family:"Noto Serif SC",serif}
+td.hi{color:var(--gold-soft)}
+tbody tr:hover{background:rgba(95,214,176,.09)}
+
+/* 计算器 */
+.calc{padding:22px 18px;border-radius:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.8rem;color:rgba(232,250,244,.8);margin-bottom:8px;letter-spacing:.08em}
+.field input{
+  width:100%;padding:14px 16px;border-radius:14px;color:#fff;font-size:.95rem;outline:none;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);transition:.2s;
+}
+.field input:focus{border-color:rgba(231,201,138,.65);box-shadow:0 0 0 3px rgba(231,201,138,.16),inset 0 1px 0 rgba(255,255,255,.45)}
+.result{margin-top:18px;padding:18px;border-radius:16px;background:rgba(95,214,176,.12);border:1px solid rgba(168,240,216,.45);text-align:center}
+.result .big{font-family:"Noto Serif SC",serif;font-size:1.9rem;color:#eafff8;text-shadow:0 0 22px rgba(95,214,176,.6)}
+.result .small{font-size:.78rem;color:rgba(232,250,244,.8);margin-top:6px}
+.chain{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.chain b{
+  font-family:"Noto Serif SC",serif;font-weight:500;font-size:.84rem;color:#eafff8;padding:6px 12px;border-radius:10px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+}
+.chain .ar{color:rgba(231,201,138,.8);align-self:center}
+
+footer{
+  margin-top:40px;padding:18px 20px;border-radius:16px;text-align:center;font-size:.74rem;
+  color:rgba(220,245,237,.62);line-height:1.9;background:rgba(255,255,255,.05);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);
+}
+@media (max-width:520px){
+  .navs{grid-template-columns:1fr}
+  .stats{gap:8px}
+  .stat{flex:1 1 90px;padding:13px 6px}
+}
+</style>
+<style id="contrast-fix">
+.glass{background:linear-gradient(180deg,rgba(10,28,27,.44),rgba(5,16,17,.58))!important}
+.nav{background:linear-gradient(180deg,rgba(10,28,27,.46),rgba(5,16,17,.62))!important;border-color:rgba(255,255,255,.28)!important}
+.stat{background:linear-gradient(180deg,rgba(10,28,27,.46),rgba(5,16,17,.62))!important}
+.search-box input{background:rgba(6,20,20,.48)!important}
+.chip{background:rgba(6,20,20,.42)!important}
+.section.glass h2,.section.glass p,.section.glass h3{text-shadow:0 1px 4px rgba(0,0,0,.6)!important}
+tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
+.tbl-wrap{background:rgba(4,14,15,.35)!important}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="index.html"><img class="logo" src="data:image/webp;base64,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" alt="logo"><em>会玩修仙传</em></a>
+    
+  </div>
+  
+  <div class="hero">
+    <div class="eyebrow">Q I Y U · L U</div>
+    <h1 class="title">会玩修仙奇遇录</h1>
+    <p class="desc">收录全部 149 道奇遇，输入关键词即刻查到选项、参考答案与对应奖励。寻道问仙，不必再凭运气。</p>
+    <div class="ornament"><i></i><b></b><i></i></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat glass js-goto" data-goto="search"><span class="n">149</span><span class="l">道奇遇</span></div>
+    <div class="stat glass js-goto" data-goto="search"><span class="n">8</span><span class="l">类奖励</span></div>
+    <div class="stat glass"><span class="n">4</span><span class="l">实用工具</span></div>
+  </div>
+
+  <div class="hairline"></div>
+  <div class="navs"><a class="nav" href="strategy.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/><path d="M8 12h8M8 16h5"/></svg></span><span class="tx"><b>修仙攻略</b><span>修魔收益 · 绝世奇遇触发条件</span></span><span class="ar">›</span></a><a class="nav" href="prob.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><span class="tx"><b>功法概率</b><span>各境界功法法宝概率与保底</span></span><span class="ar">›</span></a><a class="nav" href="realm.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6.1.9-4.4 4.3 1 6.1-5.3 2.9-5.3-2.9 1-6.1-4.4-4.3-6.1-.9z"/></svg></span><span class="tx"><b>境界修为</b><span>十八级境界 前中后期数值</span></span><span class="ar">›</span></a><a class="nav" href="count.html"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 11h3M8 15h3M14 11v6M14 17h4"/></svg></span><span class="tx"><b>灵泉计算</b><span>每轮减半的剩余灵泉估算</span></span><span class="ar">›</span></a><a class="nav" href="power.html"><span class="ic"><svg viewBox="0 0 24 24"><path d="M14.5 3.5l6 6-9 9-6 1.5L7 13.5z"/><path d="M13 5l6 6"/></svg></span><span class="tx"><b>战力计算</b><span>阵营倍率 · 可挑战战力估算</span></span><span class="ar">›</span></a><a class="nav" href="author.html"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></span><span class="tx"><b>联系作者</b><span>反馈建议 · 定制开发</span></span><span class="ar">›</span></a></div>
+  <div class="hairline"></div>
+
+  <div class="search-box" id="search">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#d5fff0" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="text" placeholder="搜题目或选项，比如「灵泉」「藏宝图」" autocomplete="off">
+    <button class="clr" id="clr" title="清空">✕</button>
+  </div>
+
+  <div class="rtip" id="rtip"></div>
+  <div class="chips" id="chips"></div>
+  <div class="list" id="list"></div>
+  <div class="more-wrap"><button class="btn" id="load">继续寻缘 · 还有 <span id="left">0</span> 条</button></div>
+
+  <footer>会玩修仙奇遇录<br>答案整理自游戏实测 · 奇遇内容随版本更新可能调整，结果以游戏内为准</footer>
+
+  
+<script>
+const DATA = [{"id":1,"q":"1、你偶然被传送到了一处时空洞穴，你打算通过洞穴神奇的能力穿越至","opts":[{"label":"A","text":"过去","reward":"聚灵丹","correct":true},{"label":"B","text":"未来","reward":"","correct":false}],"ans":"A"},{"id":2,"q":"2、道友赠送你一张藏宝图，图中指示了两个藏宝地点","opts":[{"label":"A","text":"前往黑水湖","reward":"","correct":false},{"label":"B","text":"前往花莲村","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":3,"q":"3、你发现了一张古老的藏宝图，指引着一处埋藏在海底的宝藏，你准备","opts":[{"label":"A","text":"自己前往","reward":"","correct":false},{"label":"B","text":"卖给别人","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":5,"q":"4、宗门修炼的灵泉里，有个人嚷嚷着说要占据十个修炼位置","opts":[{"label":"A","text":"上前掌掴","reward":"聚灵丹","correct":true},{"label":"B","text":"静观其变","reward":"","correct":false}],"ans":"A"},{"id":6,"q":"5、寻找仙草途中，发现一受伤的麒麟兽","opts":[{"label":"A","text":"帮助麒麟兽","reward":"聚灵丹","correct":true},{"label":"B","text":"转身离开","reward":"","correct":false}],"ans":"A"},{"id":7,"q":"6、早上发现一只受伤的灵狐趴在自家门口","opts":[{"label":"A","text":"替它疗伤","reward":"聚灵丹","correct":true},{"label":"B","text":"视而不见","reward":"","correct":false}],"ans":"A"},{"id":8,"q":"7、你的一位道友想要赠送一颗灵兽蛋给你，你选择","opts":[{"label":"A","text":"灰色的","reward":"聚灵丹","correct":true},{"label":"B","text":"橙色的","reward":"扣修为","correct":false}],"ans":"A"},{"id":9,"q":"8、一日你上山采药，突然跌落悬崖，突然一位神秘仙人现身，伸出援手","opts":[{"label":"A","text":"接受帮助","reward":"聚灵丹","correct":true},{"label":"B","text":"婉言拒绝","reward":"修为","correct":true}],"ans":"AB"},{"id":10,"q":"9、深夜，一名修仙者鬼鬼祟祟潜入你的洞府，试图偷取你的物品","opts":[{"label":"A","text":"与其战斗","reward":"聚灵丹","correct":true},{"label":"B","text":"好言相劝","reward":"扣修为","correct":false}],"ans":"A"},{"id":11,"q":"10、你偶然遇到了一位云游四方的商人，于是准备向他购买","opts":[{"label":"A","text":"仙草","reward":"修为","correct":true},{"label":"B","text":"丹药","reward":"聚灵丹","correct":true}],"ans":"AB"},{"id":12,"q":"11、身逢乱世，你下山救民，路边一位伤重乞丐向你求助","opts":[{"label":"A","text":"救治","reward":"聚灵丹","correct":true},{"label":"B","text":"离去","reward":"","correct":false}],"ans":"A"},{"id":13,"q":"12、收到一封神秘的飞鸽传书，信中说他是玉皇大帝下凡，需要一些宝物帮助他恢复修为，恢复之后可助你成仙","opts":[{"label":"A","text":"寄出宝物","reward":"扣修为","correct":false},{"label":"B","text":"像宗门举报","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":14,"q":"13、途经灵山，你发现两只灵兽在争抢灵果","opts":[{"label":"A","text":"帮助鸾鸟","reward":"聚灵丹","correct":true},{"label":"B","text":"帮助金鼠","reward":"元气丹","correct":true}],"ans":"AB"},{"id":15,"q":"14、购买丹药时被小贩质问：这么多年修为涨没涨，有没有认真修炼","opts":[{"label":"A","text":"掀翻药店","reward":"聚灵丹","correct":true},{"label":"B","text":"忍气吞声","reward":"","correct":false}],"ans":"A"},{"id":17,"q":"15、你受邀前往道友的洞府拜访，你看道友在忙，于是帮助他","opts":[{"label":"A","text":"浇灌药园","reward":"修为","correct":true},{"label":"B","text":"炼丹","reward":"聚灵丹","correct":true}],"ans":"AB"},{"id":18,"q":"16、一位道友听说你进步神速，特地前来打探消息","opts":[{"label":"A","text":"打发他回家","reward":"扣修为","correct":false},{"label":"B","text":"告诉他秘笈","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":19,"q":"17、有位书生前来拜访，祈求你能帮帮他的病重母亲","opts":[{"label":"A","text":"赠药","reward":"聚灵丹","correct":true},{"label":"B","text":"救治","reward":"元气丹","correct":true}],"ans":"AB"},{"id":20,"q":"18、山下的村民来你家做客","opts":[{"label":"A","text":"邀请吃饭","reward":"扣修为","correct":false},{"label":"B","text":"赠送手信","reward":"元气丹","correct":true}],"ans":"B"},{"id":21,"q":"19、路上行走时一只灵宠窜出并叼走了你的玉佩","opts":[{"label":"A","text":"前去追赶","reward":"元气丹","correct":true},{"label":"B","text":"自认倒霉","reward":"","correct":false}],"ans":"A"},{"id":23,"q":"20、今日和一小妖打斗，你已经占据上风","opts":[{"label":"A","text":"乘胜追击","reward":"元气丹","correct":true},{"label":"B","text":"放他一马","reward":"聚灵丹","correct":true}],"ans":"AB"},{"id":24,"q":"21、据说师叔练了一炉丹药，但是丹药中有各种奇奇怪怪的黑色药渣，你决定","opts":[{"label":"A","text":"自己试吃","reward":"元气丹","correct":true},{"label":"B","text":"让其他人吃","reward":"","correct":false}],"ans":"A"},{"id":25,"q":"22、你无意中听说东海有一仙岛，于是前往探寻","opts":[{"label":"A","text":"乘船前往","reward":"聚灵丹","correct":true},{"label":"B","text":"御剑前往","reward":"挑战贴","correct":true}],"ans":"AB"},{"id":26,"q":"23、附近的仙村中据说有蛟龙咬死了几位道友","opts":[{"label":"A","text":"一探究竟","reward":"修为","correct":true},{"label":"B","text":"不去打探","reward":"","correct":false}],"ans":"A"},{"id":27,"q":"24、突遇一灵泉，有七彩麋鹿在泉中嬉戏","opts":[{"label":"A","text":"占为己有","reward":"扣修为","correct":false},{"label":"B","text":"转身离开","reward":"空气","correct":true}],"ans":"B"},{"id":32,"q":"25、你不小心闯入了一片迷魂林","opts":[{"label":"A","text":"向左走","reward":"扣修为","correct":false},{"label":"B","text":"向右走","reward":"挑战贴","correct":true}],"ans":"B"},{"id":33,"q":"26、宗门里来了一位天庭的大能，说要招收一个关门弟子","opts":[{"label":"A","text":"积极报名","reward":"修为","correct":true},{"label":"B","text":"下次再说","reward":"","correct":false}],"ans":"A"},{"id":36,"q":"27、一位美丽的仙子飞到你身边，低声细语着某个秘密","opts":[{"label":"A","text":"倾听","reward":"挑战贴","correct":true},{"label":"B","text":"拒绝","reward":"","correct":false}],"ans":"A"},{"id":39,"q":"28、这天，你的修为陷入停滞，感觉无法突破当前境界","opts":[{"label":"A","text":"坚持修炼","reward":"","correct":false},{"label":"B","text":"寻找帮助","reward":"修为","correct":true}],"ans":"B"},{"id":41,"q":"29、安静的夜空中突然劈下一道闪电","opts":[{"label":"A","text":"前去看看","reward":"扣修为","correct":false},{"label":"B","text":"回家收衣","reward":"挑战贴","correct":true}],"ans":"B"},{"id":42,"q":"30、一群仙鸟集结在一棵古老的仙木上，开始演奏美妙的乐曲","opts":[{"label":"A","text":"沉浸欣赏","reward":"空气","correct":true},{"label":"B","text":"打断他们","reward":"扣修为","correct":false}],"ans":"A"},{"id":43,"q":"31、今天是师父的寿辰，你在想怎样给师父祝寿","opts":[{"label":"A","text":"送法宝","reward":"修为","correct":true},{"label":"B","text":"送祝寿诗","reward":"元气丹","correct":true}],"ans":"AB"},{"id":44,"q":"32、今日有一只饥饿的小麻雀飞到了你的洞府前，向你讨要食物","opts":[{"label":"A","text":"喂它谷子","reward":"","correct":false},{"label":"B","text":"喂它水果","reward":"元气丹","correct":true}],"ans":"B"},{"id":46,"q":"33、天空中突然出现了一道巨大的裂缝，释放出强大的能量波动","opts":[{"label":"A","text":"勇敢靠近","reward":"修为","correct":true},{"label":"B","text":"迅速躲避","reward":"","correct":false}],"ans":"A"},{"id":47,"q":"34、你在游历人界之时，偶然发现一处灵气浓郁的矿脉","opts":[{"label":"A","text":"浅处挖掘","reward":"修为","correct":true},{"label":"B","text":"深处挖掘","reward":"","correct":false}],"ans":"A"},{"id":48,"q":"35、同道友出游，路过一片荒芜之地，发现此地有一洞穴，透出金光","opts":[{"label":"A","text":"一同探寻","reward":"","correct":false},{"label":"B","text":"分开探寻","reward":"元气丹","correct":true}],"ans":"B"},{"id":49,"q":"36、今日村里发生怪事，夜里总有野兽怪嚎之声，村民请求你的帮助","opts":[{"label":"A","text":"帮助村民","reward":"元气丹","correct":true},{"label":"B","text":"袖手旁观","reward":"","correct":false}],"ans":"A"},{"id":50,"q":"37、偶遇路边流氓在欺压一位白发老者，你上前制止后，老者拿出两块灵石，请你选择一块作为谢礼","opts":[{"label":"A","text":"普通的灵石","reward":"","correct":false},{"label":"B","text":"古怪的灵石","reward":"修为","correct":true}],"ans":"B"},{"id":51,"q":"38、你听说北方有处奇景，欲前往观之，却误入了修仙大能的遗迹，此时看守灵兽现身","opts":[{"label":"A","text":"与其战斗","reward":"挑战贴","correct":true},{"label":"B","text":"表达敬仰","reward":"修为","correct":true}],"ans":"AB"},{"id":52,"q":"39、暴雨过后，一条绚烂的彩虹横跨在天空","opts":[{"label":"A","text":"去追彩虹","reward":"元气丹","correct":true},{"label":"B","text":"专心修炼","reward":"修为","correct":true}],"ans":"AB"},{"id":55,"q":"40、神秘的彗星坠落，大家议论纷纷","opts":[{"label":"A","text":"前去调查","reward":"修为","correct":true},{"label":"B","text":"闭目许愿","reward":"","correct":false}],"ans":"A"},{"id":56,"q":"41、玩家在山谷中遇到一位修仙者，两人感觉有一种奇特的缘分","opts":[{"label":"A","text":"缔结契约","reward":"修为","correct":true},{"label":"B","text":"保持独行","reward":"","correct":false}],"ans":"A"},{"id":57,"q":"42、一日，你在修炼过程中，突然天降神劫","opts":[{"label":"A","text":"迎接神劫","reward":"修为","correct":true},{"label":"B","text":"躲避神劫","reward":"空气","correct":false}],"ans":"A"},{"id":58,"q":"43、路遇两小儿在争抢一支糖葫芦","opts":[{"label":"A","text":"夺过糖葫芦","reward":"","correct":false},{"label":"B","text":"再买一只","reward":"挑战贴","correct":true}],"ans":"B"},{"id":59,"q":"44、一只调皮的仙猴突然出现在你面前，要求你和他一起玩","opts":[{"label":"A","text":"捉迷藏","reward":"元气丹","correct":true},{"label":"B","text":"拍掌唱歌","reward":"","correct":false}],"ans":"A"},{"id":60,"q":"45、今天你的灵兽一直在叫唤，不知是怎么了","opts":[{"label":"A","text":"不理会","reward":"空气","correct":true},{"label":"B","text":"查看情况","reward":"扣修为","correct":false}],"ans":"A"},{"id":62,"q":"46、上山去拜访一位多年未见的道友，路上偶遇一头受伤的熊猫","opts":[{"label":"A","text":"施法疗伤","reward":"元气丹","correct":true},{"label":"B","text":"送去医馆","reward":"","correct":false}],"ans":"A"},{"id":63,"q":"47、家里菜园的菜竟然被偷了","opts":[{"label":"A","text":"探查原因","reward":"挑战贴","correct":true},{"label":"B","text":"重新种菜","reward":"修为","correct":true}],"ans":"AB"},{"id":64,"q":"48、上山采集药草途中，突然发现一散发七彩琉璃光的药草","opts":[{"label":"A","text":"采集药草","reward":"扣修为","correct":false},{"label":"B","text":"决定放弃","reward":"空气","correct":true}],"ans":"B"},{"id":65,"q":"49、一觉醒来发现自己失忆了","opts":[{"label":"A","text":"外出调查","reward":"扣修为","correct":false},{"label":"B","text":"屏气凝神","reward":"修为","correct":true}],"ans":"B"},{"id":66,"q":"50、由于天赋异禀，有仙道正派愿意收你为徒","opts":[{"label":"A","text":"感恩戴德","reward":"扣修为","correct":false},{"label":"B","text":"委婉拒绝","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":67,"q":"51、道友来寻你，请你去旁边的山上一起修炼","opts":[{"label":"A","text":"一起修炼","reward":"扣修为","correct":false},{"label":"B","text":"独自修炼","reward":"修为","correct":true}],"ans":"B"},{"id":69,"q":"52、遇到一伙劫匪正在抢劫商户","opts":[{"label":"A","text":"拔刀相助","reward":"元气丹","correct":true},{"label":"B","text":"明哲保身","reward":"空气","correct":false}],"ans":"A"},{"id":70,"q":"53、修炼过程中，突然受到周围灵力磁场干扰，头晕目眩","opts":[{"label":"A","text":"前往探究","reward":"修为","correct":true},{"label":"B","text":"坚持修炼","reward":"","correct":false}],"ans":"A"},{"id":71,"q":"54、你遇到一位神秘的仙人，他向你提出一个问题：你在修仙路途上，坚持的本心是什么？你回答道","opts":[{"label":"A","text":"善良","reward":"修为","correct":true},{"label":"B","text":"强大","reward":"挑战贴","correct":true}],"ans":"AB"},{"id":72,"q":"55、你偶然发现一片灵气浓郁的树林，于是进入歇息","opts":[{"label":"A","text":"食用果实","reward":"修为","correct":true},{"label":"B","text":"饮用溪水","reward":"修为","correct":true}],"ans":"AB"},{"id":73,"q":"56、一日，你在仙洞修炼，发现门外有正邪两股势力在争斗","opts":[{"label":"A","text":"帮助正道","reward":"元气丹","correct":true},{"label":"B","text":"害怕波及","reward":"","correct":false}],"ans":"A"},{"id":74,"q":"57、夜晚听到有神秘凄凉的歌声","opts":[{"label":"A","text":"外出调查","reward":"挑战贴","correct":true},{"label":"B","text":"静观其变","reward":"","correct":false}],"ans":"A"},{"id":75,"q":"58、阴雨连绵已七日，今天终于放晴了","opts":[{"label":"A","text":"出门钓鱼","reward":"修为","correct":true},{"label":"B","text":"出门砍柴","reward":"","correct":false}],"ans":"A"},{"id":77,"q":"59、听说有所门派开设了修仙课程，你慕名而去，准备报名","opts":[{"label":"A","text":"炼丹课程","reward":"聚灵丹","correct":true},{"label":"B","text":"战斗课程","reward":"扣修为","correct":false}],"ans":"A"},{"id":78,"q":"60、卖灵芝的小贩来了","opts":[{"label":"A","text":"买一些","reward":"扣修为","correct":false},{"label":"B","text":"下次再买","reward":"修为","correct":true}],"ans":"B"},{"id":79,"q":"61、在山林中遇到一位砍柴的樵夫","opts":[{"label":"A","text":"上前攀谈","reward":"修为","correct":true},{"label":"B","text":"不予理睬","reward":"","correct":false}],"ans":"A"},{"id":80,"q":"62、你在外出游玩时，遇到了一位樵夫，看上去他今天一无所获，你准备送他","opts":[{"label":"A","text":"一把斧头","reward":"","correct":false},{"label":"B","text":"两捆柴","reward":"修为","correct":true}],"ans":"B"},{"id":81,"q":"63、在闭关修炼中，突然领悟到一门高深的修仙功法，感受到修为突破","opts":[{"label":"A","text":"提升修为","reward":"扣修为","correct":false},{"label":"B","text":"保持谨慎","reward":"修为","correct":true}],"ans":"B"},{"id":82,"q":"64、和你一同修炼的道友突然开始对你莫名吹捧","opts":[{"label":"A","text":"接受夸赞","reward":"扣修为","correct":false},{"label":"B","text":"给他一拳","reward":"空气","correct":true}],"ans":"B"},{"id":84,"q":"65、今天起床腰酸背痛","opts":[{"label":"A","text":"不放在心上","reward":"扣修为","correct":false},{"label":"B","text":"去医馆瞧瞧","reward":"修为","correct":true}],"ans":"B"},{"id":89,"q":"66、一道友生辰","opts":[{"label":"A","text":"前去祝贺","reward":"扣修为","correct":false},{"label":"B","text":"专心修炼","reward":"修为","correct":true}],"ans":"B"},{"id":92,"q":"67、你遇到了一位大能，这位大能用九只乌龟拉着一个棺椁作为自己的基座，你决定","opts":[{"label":"A","text":"向大能问好","reward":"修为","correct":true},{"label":"B","text":"给乌龟吃的","reward":"扣修为","correct":false}],"ans":"A"},{"id":93,"q":"68、有人在敲门：咚咚咚～原来是隔壁的小孩来找你去镇上玩","opts":[{"label":"A","text":"打发他回家","reward":"","correct":false},{"label":"B","text":"一起去玩","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":94,"q":"69、一座上古仙境即将开启，你决定","opts":[{"label":"A","text":"继续修炼","reward":"空气","correct":true},{"label":"B","text":"前去凑热闹","reward":"扣修为","correct":false}],"ans":"A"},{"id":95,"q":"70、又一位师叔殒命于雷劫中","opts":[{"label":"A","text":"厚葬师叔","reward":"聚灵丹","correct":true},{"label":"B","text":"感悟雷劫","reward":"","correct":false}],"ans":"A"},{"id":96,"q":"71、今天你夜观天象，你突然灵感爆发","opts":[{"label":"A","text":"挥毫泼墨","reward":"修为","correct":true},{"label":"B","text":"立刻入定","reward":"","correct":false}],"ans":"A"},{"id":97,"q":"72、天上下起了鹅毛大雪，整座宗门都变成了冰雪世界，你于是修炼","opts":[{"label":"A","text":"御火诀","reward":"聚灵丹","correct":true},{"label":"B","text":"冰封术","reward":"修为","correct":true}],"ans":"AB"},{"id":98,"q":"73、师叔早上在三途河内钓了一尾仙鲤，煮了一大锅汤在山门分发","opts":[{"label":"A","text":"喝下鱼汤","reward":"扣修为","correct":false},{"label":"B","text":"质疑师叔","reward":"元气丹","correct":true}],"ans":"B"},{"id":99,"q":"74、最近师父要考核了，你发现本门门规又多了几百条","opts":[{"label":"A","text":"死记硬背","reward":"修为","correct":true},{"label":"B","text":"暗示划重点","reward":"","correct":false}],"ans":"A"},{"id":100,"q":"75、师兄检查你最近的课业如何","opts":[{"label":"A","text":"只说好事","reward":"修为","correct":true},{"label":"B","text":"描述现实","reward":"","correct":false}],"ans":"A"},{"id":101,"q":"76、宗门最近有很多道友在和其他宗门道友在附近的仙镇中论道","opts":[{"label":"A","text":"前去论道","reward":"","correct":false},{"label":"B","text":"回家打坐","reward":"修为","correct":true}],"ans":"B"},{"id":102,"q":"77、最近传闻有一位新大能，能秒杀仙帝","opts":[{"label":"A","text":"前去拜师","reward":"","correct":false},{"label":"B","text":"围观战场","reward":"修为","correct":true}],"ans":"B"},{"id":103,"q":"78、近年来好像成立了个什么扬枪大会，据说要和名剑大会一样给参赛冠军绝世神兵","opts":[{"label":"A","text":"前去参加","reward":"空气","correct":false},{"label":"B","text":"前去围观","reward":"修为","correct":true}],"ans":"B"},{"id":104,"q":"79、早上你卜算一卦，暗示你今天有血光之灾","opts":[{"label":"A","text":"不出门","reward":"扣修为","correct":false},{"label":"B","text":"出门求香火","reward":"空气","correct":true}],"ans":"B"},{"id":105,"q":"80、一只猫趴在了你打坐的蒲团前","opts":[{"label":"A","text":"摸摸猫","reward":"","correct":false},{"label":"B","text":"放任它","reward":"修为","correct":true}],"ans":"B"},{"id":106,"q":"81、几个师叔搞了几匹仙马，在宗门最近开起了赛马大会","opts":[{"label":"A","text":"去看热闹","reward":"修为","correct":true},{"label":"B","text":"去卖仙草","reward":"元气丹","correct":true}],"ans":"AB"},{"id":107,"q":"82、你打坐的时候突然来了一阵睡意","opts":[{"label":"A","text":"直接睡觉","reward":"修为","correct":true},{"label":"B","text":"强忍困意","reward":"","correct":false}],"ans":"A"},{"id":108,"q":"83、宗门新入了一批仙石原矿","opts":[{"label":"A","text":"开个大石头","reward":"","correct":false},{"label":"B","text":"开个小石头","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":109,"q":"84、一个神秘组织老在最近的仙矿上来回巡视","opts":[{"label":"A","text":"前去打探","reward":"修为","correct":true},{"label":"B","text":"直接搭话","reward":"","correct":false}],"ans":"A"},{"id":110,"q":"85、你和同门师兄弟谈论道法的时候突然有所顿悟","opts":[{"label":"A","text":"立刻打坐","reward":"空气","correct":false},{"label":"B","text":"继续论道","reward":"修为","correct":true}],"ans":"B"},{"id":116,"q":"86、近日夜里隐现宝光，听说是有宝物即将问世。但因封印影响，夜晚之时，四周陷入严寒绝地，难以接近","opts":[{"label":"A","text":"夜晚前往","reward":"元气丹","correct":true},{"label":"B","text":"白日前往","reward":"","correct":false}],"ans":"A"},{"id":118,"q":"87、你在修炼的过程中，隐隐感觉到自己的心中似乎还惦记着过去","opts":[{"label":"A","text":"回到尘世","reward":"修为","correct":true},{"label":"B","text":"不管不顾","reward":"","correct":false}],"ans":"A"},{"id":124,"q":"88、最近的仙村里面有一座庙，庙内的一个石像突然碎裂了","opts":[{"label":"A","text":"一探究竟","reward":"聚灵丹","correct":true},{"label":"B","text":"求神拜佛","reward":"修为","correct":true}],"ans":"AB"},{"id":127,"q":"89、在某个山洞中捡到了一把生锈的铁刀，直觉告诉你它的来历不简单","opts":[{"label":"A","text":"滴一滴血","reward":"修为","correct":true},{"label":"B","text":"注入灵力","reward":"","correct":false}],"ans":"A"},{"id":128,"q":"90、你听说其他宗门的道友在散播谣言，妄图损害你的宗门","opts":[{"label":"A","text":"欺人太甚","reward":"挑战贴","correct":true},{"label":"B","text":"忍气吞声","reward":"","correct":false}],"ans":"A"},{"id":129,"q":"91、刚入门的师妹想找你指教几招","opts":[{"label":"A","text":"指点几招","reward":"空气","correct":true},{"label":"B","text":"让她找师兄","reward":"扣修为","correct":false}],"ans":"A"},{"id":130,"q":"92、你的师父早就辟谷了，但最近询问你们弟子是否有做叫花鸡的诀窍","opts":[{"label":"A","text":"提供秘诀","reward":"挑战贴","correct":true},{"label":"B","text":"询问缘由","reward":"","correct":false}],"ans":"A"},{"id":146,"q":"93、一位顽皮的小仙童突然出现在你面前，问你是否愿意陪他去拜见他的师父","opts":[{"label":"A","text":"委婉拒绝","reward":"","correct":false},{"label":"B","text":"欣然前往","reward":"挑战贴","correct":true}],"ans":"B"},{"id":148,"q":"94、去找道友的路上，偶遇一队接亲队伍","opts":[{"label":"A","text":"讨喜糖","reward":"元气丹","correct":true},{"label":"B","text":"继续赶路","reward":"修为","correct":true}],"ans":"AB"},{"id":150,"q":"95、旁边山门上传来了一股火锅味","opts":[{"label":"A","text":"拜访","reward":"","correct":false},{"label":"B","text":"自己做火锅吃","reward":"修为","correct":true}],"ans":"B"},{"id":151,"q":"96、三十年一度的门派比武大会开始","opts":[{"label":"A","text":"前去参赛","reward":"元气丹","correct":true},{"label":"B","text":"前去围观","reward":"空气","correct":false}],"ans":"A"},{"id":155,"q":"97、天突变异象，雷声滚滚，一道友邀请你前去查看情况","opts":[{"label":"A","text":"跟着去","reward":"扣修为","correct":false},{"label":"B","text":"选择放弃","reward":"","correct":true}],"ans":"B"},{"id":156,"q":"98、一位修仙大能听闻你天资聪颖，于是专程前来找你切磋","opts":[{"label":"A","text":"上前切磋","reward":"修为","correct":true},{"label":"B","text":"谦虚回绝","reward":"修为","correct":true}],"ans":"AB"},{"id":171,"q":"99、这天，你的道友兴致勃勃来找你，他炼制出了新的飞行法器准备送你，你选择","opts":[{"label":"A","text":"笛子","reward":"修为","correct":true},{"label":"B","text":"飞舟","reward":"扣修为","correct":false}],"ans":"A"},{"id":179,"q":"100、早上醒来后发现自己身处一片迷雾之中","opts":[{"label":"A","text":"寻找出路","reward":"","correct":false},{"label":"B","text":"静观其变","reward":"修为","correct":true}],"ans":"B"},{"id":217,"q":"101、近日有一邪教人士出没，鬼鬼祟祟，不知有什么目的","opts":[{"label":"A","text":"暗中调查","reward":"挑战贴","correct":true},{"label":"B","text":"直面出击","reward":"","correct":false}],"ans":"A"},{"id":257,"q":"102、最近诡异之事极多，此日你收到一封飞书“不要去探查昆吾山”","opts":[{"label":"A","text":"前去昆吾","reward":"幽冥唤妖铃","correct":true},{"label":"B","text":"在家打坐","reward":"空气","correct":false}],"ans":"A"},{"id":259,"q":"103、之前常去的仙山突然宣布了封山，没人知道为什么","opts":[{"label":"A","text":"去山门","reward":"","correct":false},{"label":"B","text":"留暗号","reward":"幽冥唤妖铃","correct":true}],"ans":"B"},{"id":261,"q":"104、广陵城的升仙台突然多出了一个神秘玉简，无人参透","opts":[{"label":"A","text":"感悟其道韵","reward":"幽冥唤妖铃","correct":true},{"label":"B","text":"倾听其声音","reward":"空气","correct":false}],"ans":"A"},{"id":262,"q":"105、听闻广陵城，最近晚上百妖夜行好不热闹","opts":[{"label":"A","text":"参与夜行","reward":"幽冥唤妖铃","correct":true},{"label":"B","text":"不去参与","reward":"","correct":false}],"ans":"A"},{"id":263,"q":"106、隐龙窟最近传来虎啸之声，异常奇怪","opts":[{"label":"A","text":"前去调查","reward":"空气","correct":false},{"label":"B","text":"不去探查","reward":"幽冥唤妖铃","correct":true}],"ans":"B"},{"id":264,"q":"107、今日修道不顺，你心情不悦，于是想去仙市上逛逛","opts":[{"label":"A","text":"去逸风城","reward":"幽冥唤妖铃","correct":true},{"label":"B","text":"去星汐城","reward":"","correct":false}],"ans":"A"},{"id":265,"q":"108、龙宫据说有龙族开始进行妖修，隐隐约约是要成为当世天才","opts":[{"label":"A","text":"前去交流","reward":"聚灵丹","correct":true},{"label":"B","text":"前去挑衅","reward":"幽冥唤妖铃","correct":true}],"ans":"AB"},{"id":266,"q":"109、铁臂猿猴族群最近下山劫掠，附近仙门异常困扰","opts":[{"label":"A","text":"前去帮忙","reward":"幽冥唤妖铃","correct":true},{"label":"B","text":"不去掺合","reward":"","correct":false}],"ans":"A"},{"id":287,"q":"110、在修炼途中误入迷雾森林，四周被浓厚的雾气笼罩，无法辨认方向","opts":[{"label":"A","text":"借助阵法破雾","reward":"空气","correct":false},{"label":"B","text":"灵力覆盖双眼","reward":"","correct":false},{"label":"C","text":"原地打坐","reward":"元气丹","correct":true}],"ans":"C"},{"id":288,"q":"111、所在的修炼之地突然灵气枯竭","opts":[{"label":"A","text":"布置聚灵阵法","reward":"修为","correct":true},{"label":"B","text":"寻找新修炼地","reward":"","correct":false},{"label":"C","text":"种植灵植","reward":"","correct":false}],"ans":"A"},{"id":289,"q":"112、在炼制丹药时，丹炉突然光芒大盛，内部传出阵阵轰鸣，接着冒出阵阵黑烟","opts":[{"label":"A","text":"开炉查看","reward":"空气","correct":false},{"label":"B","text":"注入灵力压制","reward":"修为","correct":true},{"label":"C","text":"寻求炼丹大师帮助","reward":"空气","correct":false}],"ans":"B"},{"id":290,"q":"113、修炼途中，过度追求力量，导致体内真气外泄，你听说玉山上的神奇药植可以救治，于是上山采集","opts":[{"label":"A","text":"三色花","reward":"聚灵丹","correct":true},{"label":"B","text":"紫金莲","reward":"","correct":false},{"label":"C","text":"虚空草","reward":"空气","correct":false}],"ans":"A"},{"id":291,"q":"114、在闭关修炼时，意外触发了一个古老的时空阵法，被卷入了一场时空逆流之中","opts":[{"label":"A","text":"寻找时空原点","reward":"","correct":false},{"label":"B","text":"逆时间而上","reward":"修为","correct":true},{"label":"C","text":"等待救援","reward":"","correct":false}],"ans":"B"},{"id":292,"q":"115、和同门小师弟在切磋比试时不幸受伤。","opts":[{"label":"A","text":"使用后山泉水疗伤","reward":"","correct":false},{"label":"B","text":"去找药师","reward":"聚灵丹","correct":true}],"ans":"B"},{"id":311,"q":"116、在修炼时，不慎体内魔力失控，四处乱窜","opts":[{"label":"A","text":"封印魔力","reward":"","correct":false},{"label":"B","text":"引导调和","reward":"修为","correct":true},{"label":"C","text":"查找根源","reward":"","correct":false}],"ans":"B"},{"id":297,"q":"117、在修炼某部高深典籍之时，遇到了难以逾越的瓶颈","opts":[{"label":"A","text":"欣然指点","reward":"","correct":false},{"label":"B","text":"共同参悟","reward":"修为","correct":true},{"label":"C","text":"交换心得","reward":"空气","correct":false}],"ans":"B"},{"id":299,"q":"118、宗门即将举行重要的试炼大会，但却在准备过程中遭遇意外","opts":[{"label":"A","text":"服用特殊丹药","reward":"元气丹","correct":true},{"label":"B","text":"使用秘法修复","reward":"","correct":false},{"label":"C","text":"延期参加","reward":"","correct":false}],"ans":"A"},{"id":300,"q":"119、在修炼途中，过度追求力量，导致体内魔气外泄，你准备前往某个魔域圣地碰碰运气","opts":[{"label":"A","text":"暗黑深渊","reward":"元气丹","correct":true},{"label":"B","text":"万魔窟","reward":"","correct":false},{"label":"C","text":"魔焰山","reward":"","correct":false}],"ans":"A"},{"id":306,"q":"120、精心培养的魔仆突然叛变","opts":[{"label":"A","text":"联手平息叛乱","reward":"","correct":false},{"label":"B","text":"深入调查","reward":"聚灵丹","correct":true},{"label":"C","text":"尝试改造魔仆","reward":"","correct":false}],"ans":"B"},{"id":310,"q":"121、在月圆之夜，体内魔血突然沸腾，无法自抑，力量失控","opts":[{"label":"A","text":"寻找冷泉","reward":"","correct":false},{"label":"B","text":"引导磨血","reward":"","correct":false},{"label":"C","text":"闭关修炼","reward":"修为","correct":true}],"ans":"C"},{"id":296,"q":"122、在深山修炼时，一只强大的灵兽突然闯入洞府发起攻击","opts":[{"label":"A","text":"联手对抗","reward":"","correct":false},{"label":"B","text":"诱饵引开","reward":"","correct":false},{"label":"C","text":"和平谈判","reward":"聚灵丹","correct":true}],"ans":"C"},{"id":317,"q":"122、与一只强大的魔兽签订了磨婚契约，但契约突然失控","opts":[{"label":"A","text":"加固契约","reward":"","correct":false},{"label":"B","text":"解除契约","reward":"","correct":false},{"label":"C","text":"寻求平衡","reward":"修为","correct":true}],"ans":"C"},{"id":343,"q":"124、夜晚，在修炼之时，梦魇突然反噬，威胁到ta的根基","opts":[{"label":"A","text":"默念经文","reward":"","correct":false},{"label":"B","text":"净化心灵","reward":"","correct":false},{"label":"C","text":"打开心结","reward":"修为","correct":true}],"ans":"C"},{"id":345,"q":"134、你误入了一片迷雾缭绕的幻境，四周皆是幻象","opts":[{"label":"A","text":"寻找破幻之法","reward":"仙工镐","correct":true},{"label":"B","text":"享受幻境美景","reward":"","correct":false}],"ans":"A"},{"id":346,"q":"135、你发现了一株能够增长灵识的奇草，但守护兽异常强大","opts":[{"label":"A","text":"布置陷阱","reward":"","correct":false},{"label":"B","text":"召唤阵法","reward":"仙工镐","correct":true}],"ans":"B"},{"id":347,"q":"136、你得到了一枚能够预知未来的神秘玉简","opts":[{"label":"A","text":"避免泄露天机","reward":"仙工镐","correct":true},{"label":"B","text":"随意更改未来","reward":"","correct":false}],"ans":"A"},{"id":348,"q":"137、你得知一件上古神器即将现世，引发各方势力争夺","opts":[{"label":"A","text":"加入争夺","reward":"仙工镐","correct":true},{"label":"B","text":"远离纷争","reward":"","correct":false}],"ans":"A"},{"id":349,"q":"138、你发现了一处古老的炼丹炉，内藏未知丹药","opts":[{"label":"A","text":"冒险服用","reward":"","correct":false},{"label":"B","text":"直接摧毁","reward":"仙工镐","correct":true}],"ans":"B"},{"id":350,"q":"139、你遇到了一位修仙界的叛徒，他拥有邪恶的阴谋","opts":[{"label":"A","text":"揭露阴谋","reward":"仙工镐","correct":true},{"label":"B","text":"暗中观察","reward":"","correct":false}],"ans":"A"},{"id":352,"q":"141、你在炼制丹药时，不慎引发了天地异象，引来雷劫","opts":[{"label":"A","text":"勇敢面对","reward":"仙工镐","correct":true},{"label":"B","text":"迅速隐藏","reward":"","correct":false}],"ans":"A"},{"id":353,"q":"142、你正在炼制丹药，突遇丹炉爆炸危机","opts":[{"label":"A","text":"稳定丹炉","reward":"","correct":false},{"label":"B","text":"放弃挽救","reward":"仙工镐","correct":true}],"ans":"B"},{"id":354,"q":"143、你在修炼中遇到心魔侵扰，影响修行","opts":[{"label":"A","text":"以道心镇压","reward":"","correct":false},{"label":"B","text":"求师尊帮助","reward":"仙工镐","correct":true}],"ans":"B"},{"id":365,"q":"144、你发现一处隐藏的修炼秘境，但入口被强大禁制封印","opts":[{"label":"A","text":"个人破解","reward":"仙工镐","correct":true},{"label":"B","text":"寻求帮助","reward":"","correct":false}],"ans":"A"},{"id":364,"q":"145、你在秘境探险时，发现一株即将成熟的千年灵草","opts":[{"label":"A","text":"守护灵草","reward":"仙工镐","correct":true},{"label":"B","text":"立即采摘","reward":"","correct":false}],"ans":"A"},{"id":357,"q":"146、你在一处幽深的古洞中发现了一池神秘的灵泉","opts":[{"label":"A","text":"跃入灵泉","reward":"仙工镐","correct":true},{"label":"B","text":"摧毁灵泉","reward":"","correct":false}],"ans":"A"},{"id":358,"q":"147、你在一处古老的祭坛上发现了能够召唤灵兽的法阵","opts":[{"label":"A","text":"用灵力召唤","reward":"","correct":false},{"label":"B","text":"用意念召唤","reward":"仙工镐","correct":true}],"ans":"B"},{"id":363,"q":"148、你误入了一个时间流速不同的秘境，外界一日，秘境百年","opts":[{"label":"A","text":"立刻修炼","reward":"","correct":false},{"label":"B","text":"寻找出口","reward":"仙工镐","correct":true}],"ans":"B"},{"id":361,"q":"149、你正在闭关修炼，突闻宗门遭遇强敌入侵","opts":[{"label":"A","text":"出关迎战","reward":"仙工镐","correct":true},{"label":"B","text":"继续闭关","reward":"","correct":false}],"ans":"A"},{"id":360,"q":"150、你遇到一位重伤的修士，它拥有强大的修为","opts":[{"label":"A","text":"出手相救","reward":"仙工镐","correct":true},{"label":"B","text":"视而不见","reward":"","correct":false}],"ans":"A"},{"id":362,"q":"151、你所在的宗门即将举行大比，选拔年轻才俊","opts":[{"label":"A","text":"积极备战","reward":"仙工镐","correct":true},{"label":"B","text":"低调参与","reward":"","correct":false}],"ans":"A"},{"id":359,"q":"152、你偶然得到了一枚神秘的古玉，内含强大灵力","opts":[{"label":"A","text":"占为己有","reward":"仙工镐","correct":true},{"label":"B","text":"交予宗门","reward":"","correct":false}],"ans":"A"},{"id":356,"q":"153、你发现了一处废弃的修仙宗门遗址，内藏无数法宝","opts":[{"label":"A","text":"搜罗宝物","reward":"","correct":false},{"label":"B","text":"修复宗门","reward":"仙工镐","correct":true}],"ans":"B"},{"id":355,"q":"154、你误入了一个由妖兽统治的秘境，人类修士在这里会被奴役","opts":[{"label":"A","text":"寻找出口","reward":"仙工镐","correct":true},{"label":"B","text":"奋起反击","reward":"","correct":false}],"ans":"A"},{"id":366,"q":"155、在一处废墟中发现古老的福禄","opts":[{"label":"A","text":"研究福禄","reward":"修为","correct":true},{"label":"B","text":"上交福禄","reward":"","correct":false}],"ans":"A"},{"id":417,"q":"156、妖界突然发动入侵，你所在的地区面临危机（福袋赠送）","opts":[{"label":"A","text":"挺身而出","reward":"","correct":false},{"label":"B","text":"逃离危险","reward":"修为","correct":true}],"ans":"B"},{"id":418,"q":"157、你在一次历练中遇到了一位神秘的老者，他声称能预测未来（福袋赠送）","opts":[{"label":"A","text":"请他预测","reward":"修为","correct":true},{"label":"B","text":"拒绝预测","reward":"","correct":false}],"ans":"A"},{"id":419,"q":"158、你在山间漫步时，发现了一株传说中的仙草，它散发着诱人的灵气（福袋赠送）","opts":[{"label":"A","text":"采摘仙草","reward":"修为","correct":true},{"label":"B","text":"留下仙草","reward":"","correct":false}],"ans":"A"},{"id":420,"q":"159、你在山间小径上偶遇一位美丽的仙子，她似乎正在寻找失落的法器（福袋赠送）","opts":[{"label":"A","text":"帮助仙子","reward":"修为","correct":true},{"label":"B","text":"婉言谢绝","reward":"","correct":false}],"ans":"A"}];
+const PAGE = 24;
+const state = { kw:'', reward:'全部', shown:PAGE, open:new Set() };
+const REWARD_ORDER = ['全部','聚灵丹','修为','元气丹','挑战贴','仙工镐','幽冥唤妖铃','扣修为','空气'];
+function isBad(r){ return r==='扣修为' || r==='空气'; }
+function rewardsOf(item){
+  const set=[]; item.opts.forEach(o=>{ if(o.reward && !set.includes(o.reward)) set.push(o.reward); });
+  return set;
+}
+function filtered(){
+  const kw = state.kw.trim().toLowerCase();
+  return DATA.filter(it=>{
+    if(state.reward !== '全部' && !rewardsOf(it).includes(state.reward)) return false;
+    if(!kw) return true;
+    if(it.q.toLowerCase().includes(kw)) return true;
+    return it.opts.some(o=>o.text.toLowerCase().includes(kw));
+  });
+}
+function stripNo(q){ return q.replace(/^\d+、/,''); }
+function render(){
+  const counts={};
+  DATA.forEach(it=>rewardsOf(it).forEach(r=>counts[r]=(counts[r]||0)+1));
+  document.getElementById('chips').innerHTML = REWARD_ORDER.map(r=>{
+    const n = r==='全部' ? DATA.length : (counts[r]||0);
+    const on = state.reward===r ? ' on':'';
+    return '<div class="chip'+on+'" data-r="'+r+'">'+r+'<i>'+n+'</i></div>';
+  }).join('');
+  const rows = filtered();
+  const show = rows.slice(0, state.shown);
+  const list = document.getElementById('list');
+  const rtip = document.getElementById('rtip');
+  const filtering = state.kw.trim() !== '' || state.reward !== '全部';
+  rtip.innerHTML = filtering
+    ? '共找到 <b>'+rows.length+'</b> 条' + (state.kw.trim() ? '（关键词：'+state.kw.trim()+'）' : '（'+state.reward+'）')
+    : '共收录 <b>'+DATA.length+'</b> 条奇遇';
+  if(rows.length===0){
+    list.innerHTML = '<div class="empty"><span>☯</span>没有找到相关奇遇，换个关键词试试</div>';
+    document.querySelector('.more-wrap').style.display='none'; return;
+  }
+  document.querySelector('.more-wrap').style.display='block';
+  list.innerHTML = show.map(it=>{
+    const badges = rewardsOf(it).map(r=>{
+      if(!r) return '<span class="badge none">无奖励</span>';
+      return '<span class="badge'+(isBad(r)?' bad':'')+'">'+r+'</span>';
+    }).join('') || '<span class="badge none">无奖励</span>';
+    const opts = it.opts.map(o=>{
+      const cls = o.correct ? 'opt right' : 'opt';
+      const rw = o.reward ? ('<span class="rw'+(isBad(o.reward)?' bad':'')+'">'+o.reward+'</span>') : '';
+      return '<div class="'+cls+'"><span class="lab">'+o.label+'</span><span class="txt">'+o.text+'</span>'+rw+'</div>';
+    }).join('');
+    const open = state.open.has(it.id) ? ' open' : '';
+    return '<div class="card'+open+'" data-id="'+it.id+'">'
+      + '<div class="head"><div class="qtxt"><span class="no">'+it.q.split('、')[0]+'</span><span>'+stripNo(it.q)+'</span></div>'
+      + '<div class="badges">'+badges+'<span class="more">查看答案<svg viewBox="0 0 24 24" fill="none" stroke="#cfeee6" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></div></div>'
+      + '<div class="body"><div class="opts">'+opts+'</div></div></div>';
+  }).join('');
+  const left = rows.length - show.length;
+  document.getElementById('left').textContent = left;
+  document.getElementById('load').style.display = left>0 ? 'inline-block' : 'none';
+}
+document.getElementById('chips').addEventListener('click', e=>{
+  const c = e.target.closest('.chip'); if(!c) return;
+  state.reward = c.dataset.r; state.shown = PAGE; state.open.clear(); render();
+});
+document.getElementById('list').addEventListener('click', e=>{
+  const head = e.target.closest('.head'); if(!head) return;
+  const card = head.parentElement; const id = Number(card.dataset.id);
+  card.classList.toggle('open');
+  if(card.classList.contains('open')) state.open.add(id); else state.open.delete(id);
+});
+const input = document.getElementById('q');
+const clr = document.getElementById('clr');
+function applySearch(v){
+  v = v || ''; if(v === state.kw) return;
+  state.kw = v; state.shown = PAGE;
+  clr.style.display = v ? 'block' : 'none';
+  render();
+  const listEl = document.getElementById('list');
+  const top = listEl.getBoundingClientRect().top + window.scrollY - 90;
+  if(window.scrollY > top) window.scrollTo({ top: top, behavior:'smooth' });
+}
+['input','change','keyup','keydown','compositionend','search','paste','cut','focus'].forEach(ev=>{
+  input.addEventListener(ev, ()=>applySearch(input.value));
+});
+input.addEventListener('keydown', e=>{ if(e.key === 'Enter') applySearch(input.value); });
+setInterval(()=>applySearch(input.value), 300);
+clr.addEventListener('click', ()=>{ input.value=''; state.kw=''; clr.style.display='none'; state.shown=PAGE; render(); input.focus(); });
+document.querySelectorAll('.js-goto').forEach(el=>el.addEventListener('click',()=>{const t=document.getElementById(el.dataset.goto);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
+document.getElementById('load').addEventListener('click', ()=>{ state.shown += PAGE; render(); });
+render();
+</script>
+</div>
+</body>
+</html>
