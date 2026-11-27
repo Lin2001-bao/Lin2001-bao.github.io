@@ -374,6 +374,7 @@ setInterval(()=>applySearch(input.value), 300);
 clr.addEventListener('click', ()=>{ input.value=''; state.kw=''; clr.style.display='none'; renderDrop(); input.focus(); });
 function toggleCard(card){
   if(!card) return;
+  input.blur();
   card.classList.toggle('open');
   if(card.classList.contains('open')){
     requestAnimationFrame(()=>{
