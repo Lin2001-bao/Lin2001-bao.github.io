@@ -124,13 +124,15 @@ body::after{
 .search-box input:focus{background:rgba(255,255,255,.16);border-color:rgba(231,201,138,.62);box-shadow:0 0 0 3px rgba(231,201,138,.18),0 8px 26px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.5)}
 .search-box .ico{position:absolute;left:19px;top:50%;transform:translateY(-50%);width:17px;height:17px;opacity:.8;pointer-events:none}
 .search-box .clr{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:33px;height:33px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#e9fbf5;font-size:15px;cursor:pointer;display:none}
-.search-drop{position:absolute;left:0;right:0;top:calc(100% + 10px);z-index:60;display:none;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto;padding:2px}
+.search-drop{position:absolute;left:0;right:0;top:calc(100% + 10px);z-index:60;display:none;flex-direction:column;gap:10px;max-height:340px;overflow-y:auto;padding:2px}
 .search-drop.show{display:flex}
-.di{display:flex;gap:10px;align-items:center;padding:13px 15px;border-radius:14px;cursor:pointer;border:1px solid transparent;background:rgba(255,255,255,.05);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:border-color .25s,background .25s}
-.di:hover{border-color:rgba(231,201,138,.6);background:rgba(231,201,138,.1)}
-.di .dq{flex:1;font-family:"Noto Serif SC",serif;font-size:.92rem;line-height:1.55;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.45)}
-.di .dq .no{color:var(--gold);font-size:.84rem;opacity:.95;margin-right:6px}
-.di .tag{flex:0 0 auto;font-size:.72rem;font-weight:600;color:var(--gold-soft);border:1px solid rgba(231,201,138,.55);border-radius:8px;padding:4px 10px;white-space:nowrap}
+.di{display:block;padding:14px 16px;border-radius:16px;cursor:pointer;background:linear-gradient(180deg,rgba(12,30,30,.55),rgba(6,18,19,.62));-webkit-backdrop-filter:blur(18px) saturate(145%);backdrop-filter:blur(18px) saturate(145%);border:1px solid rgba(255,255,255,.2);box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.3);transition:border-color .25s,box-shadow .28s,transform .25s}
+.di:hover{border-color:rgba(231,201,138,.45);box-shadow:0 14px 36px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.4);transform:translateY(-2px)}
+.di .dq{font-family:"Noto Serif SC",serif;font-size:.95rem;line-height:1.6;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+.di .dq .no{color:var(--gold);flex:0 0 auto;font-size:.84rem;opacity:.95;margin-right:6px}
+.di .badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.di .da{margin-left:auto;font-size:.74rem;font-weight:700;color:#03150f;background:rgba(111,240,182,.9);border-radius:8px;padding:4px 10px;white-space:nowrap}
+.di .da .rw{display:block;font-weight:400;color:rgba(3,21,15,.82);font-size:.66rem;margin-top:1px}
 .di-empty{padding:12px 11px;font-size:.8rem;color:rgba(232,250,244,.7);text-align:center}
 
 .rtip{text-align:center;font-size:.8rem;color:rgba(232,250,244,.86);min-height:1.4em;margin:4px 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
@@ -392,13 +394,17 @@ function renderDrop(){
   }
   drop.innerHTML = rows.slice(0,8).map(it=>{
     const no = it.q.split('、')[0]+'、';
+    const badges = rewardsOf(it).map(r=>{
+      if(!r) return '<span class="badge none">无奖励</span>';
+      return '<span class="badge'+(isBad(r)?' bad':'')+'">'+r+'</span>';
+    }).join('') || '<span class="badge none">无奖励</span>';
     const correct = it.opts.filter(o=>o.correct);
     const labels = correct.map(o=>o.label).join('');
     const rws = [...new Set(correct.map(o=>o.reward).filter(Boolean))];
-    const rw = rws.length ? rws.join('、') : '';
+    const rw = rws.length ? rws.join('·') : '';
     return '<div class="di" data-id="'+it.id+'">'
       + '<div class="dq"><span class="no">'+no+'</span><span>'+stripNo(it.q)+'</span></div>'
-      + '<div class="tag">'+labels+(rw?' · '+rw:'')+'</div></div>';
+      + '<div class="badges">'+badges+'<span class="da">'+labels+(rw?'<span class="rw">'+rw+'</span>':'')+'</span></div></div>';
   }).join('');
   drop.classList.add('show');
 }
