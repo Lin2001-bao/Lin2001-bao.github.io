@@ -371,7 +371,7 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
         <label>修炼速度</label>
         <div class="inp-wrap">
           <input id="speed" type="number" min="0" step="1" value="" inputmode="numeric" autocomplete="off">
-          <div class="ph"><span class="ph-txt">可手动输入；改加成后自动更新</span></div>
+          <div class="ph"><span class="ph-txt">可手动输入，改加成后自动更新</span></div>
         </div>
       </div>
       <div class="field">
@@ -654,7 +654,7 @@ $("speedViewWrap").addEventListener("click",function(){speedInput.focus();speedI
 [speedInput,curInput].forEach(function(el){
   el.addEventListener("input",function(){el.scrollTo({left:el.scrollWidth,behavior:"smooth"});});
 });
-/* 占位提示：空框常显；显示不全时往返滑动 */
+/* 占位提示：空框常显；显示不全时慢速滑动两遍后停止 */
 function setupPh(input,ph){
   var txt=ph.querySelector(".ph-txt");
   function refresh(){
@@ -663,14 +663,17 @@ function setupPh(input,ph){
     clearInterval(ph._tm);ph.scrollLeft=0;
     if(!empty)return;
     if(txt.scrollWidth>ph.clientWidth){
-      var dir=1;
+      var max=txt.scrollWidth-ph.clientWidth, passes=0;
       ph._tm=setInterval(function(){
         if(ph.style.display==="none"){ph.scrollLeft=0;return}
         if(txt.scrollWidth<=ph.clientWidth){ph.scrollLeft=0;return}
-        if(ph.scrollLeft>=txt.scrollWidth-ph.clientWidth)dir=-1;
-        else if(ph.scrollLeft<=0)dir=1;
-        ph.scrollLeft+=dir;
-      },30);
+        ph.scrollLeft+=1;
+        if(ph.scrollLeft>=max){
+          passes++;
+          if(passes>=2){clearInterval(ph._tm);ph._tm=null;ph.scrollLeft=0;return}
+          ph.scrollLeft=0;
+        }
+      },45);
     }
   }
   input.addEventListener("input",refresh);
@@ -696,6 +699,12 @@ $("histToggle").addEventListener("click",function(){
   histOpen=!histOpen;$("histList").style.display=histOpen?"":"none";this.textContent=histOpen?"收起":"展开";
 });
 $("histClear").addEventListener("click",function(){saveHist([]);renderHist()});
+var bonusOpen=true;
+$("bonusToggle").addEventListener("click",function(){
+  bonusOpen=!bonusOpen;
+  $("bonusBody").style.display=bonusOpen?"":"none";
+  this.textContent=bonusOpen?"收起":"展开";
+});
 
 bindSliders();renderLevel();refreshBonus();renderHist();
 </script>
