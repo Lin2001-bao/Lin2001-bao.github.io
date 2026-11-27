@@ -366,14 +366,17 @@ function applySearch(v){
   clr.style.display = v ? 'block' : 'none';
   renderDrop();
 }
-['input','change','keyup','keydown','compositionend','search','paste','cut','focus'].forEach(ev=>{
-  input.addEventListener(ev, ()=>applySearch(input.value));
+let idleTimer=null;
+function resetIdle(){ clearTimeout(idleTimer); idleTimer=setTimeout(()=>input.blur(),1000); }
+['input','change','keyup','keydown','compositionend','search','paste','cut'].forEach(ev=>{
+  input.addEventListener(ev, ()=>{ resetIdle(); applySearch(input.value); });
 });
 input.addEventListener('keydown', e=>{ if(e.key === 'Enter') applySearch(input.value); });
 setInterval(()=>applySearch(input.value), 300);
-clr.addEventListener('click', ()=>{ input.value=''; state.kw=''; clr.style.display='none'; renderDrop(); input.focus(); });
+clr.addEventListener('click', ()=>{ clearTimeout(idleTimer); input.value=''; state.kw=''; clr.style.display='none'; renderDrop(); input.focus(); });
 function toggleCard(card){
   if(!card) return;
+  clearTimeout(idleTimer);
   input.blur();
   card.classList.toggle('open');
   if(card.classList.contains('open')){
@@ -388,8 +391,12 @@ drop.addEventListener('click', e=>{
   const head = e.target.closest('.head'); if(!head) return;
   e.preventDefault(); toggleCard(head.parentElement);
 });
+let touchY=null, touchX=null;
+drop.addEventListener('touchstart', e=>{ const t=e.touches[0]; touchY=t.clientY; touchX=t.clientX; }, {passive:true});
 drop.addEventListener('touchend', e=>{
   const head = e.target.closest('.head'); if(!head) return;
+  const t=e.changedTouches[0];
+  if(Math.abs(t.clientY-touchY)>10 || Math.abs(t.clientX-touchX)>10) return;
   e.preventDefault(); toggleCard(head.parentElement);
 }, {passive:false});
 document.addEventListener('pointerdown', e=>{ const t=e.target&&e.target.closest?e.target.closest('.search-box'):null; if(!t) drop.classList.remove('show'); });
