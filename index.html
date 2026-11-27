@@ -142,6 +142,11 @@ body::after{
 .search-drop .qtxt .no{font-size:.78rem}
 .search-drop .badges{margin-top:8px;gap:5px}
 .search-drop .badge{font-size:.68rem;padding:2px 8px}
+.search-drop .ans-pair{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;padding:2px 9px;border-radius:8px;color:#d8fff1;background:rgba(95,214,176,.18);border:1px solid rgba(168,240,216,.45)}
+.search-drop .ans-pair b{color:var(--gold-soft);font-weight:700}
+.search-drop .ans-pair em{font-style:normal;opacity:.5}
+.search-drop .ans-pair i{font-style:normal}
+.search-drop .ans-pair.bad{color:#ffd6cf;background:rgba(255,120,105,.16);border-color:rgba(255,157,146,.45)}
 .search-drop .more{font-size:.7rem}
 .search-drop .more svg{width:13px;height:13px}
 .search-drop .body{padding:0 13px 12px}
@@ -349,13 +354,14 @@ function renderDrop(){
   }
   drop.innerHTML = rows.slice(0,8).map(it=>{
     const no = it.q.split('、')[0]+'、';
-    const badges = rewardsOf(it).map(r=>{
-      if(!r) return '<span class="badge none">无奖励</span>';
-      return '<span class="badge'+(isBad(r)?' bad':'')+'">'+r+'</span>';
+    const ansPairs = it.opts.filter(o=>o.correct).map(o=>{
+      const bad = isBad(o.reward);
+      const rw = o.reward ? '<i'+(bad?' class="bad"':'')+'>'+o.reward+'</i>' : '';
+      return '<span class="ans-pair'+(bad?' bad':'')+'"><b>'+o.label+'</b>'+(rw?'<em>|</em>':'')+rw+'</span>';
     }).join('') || '<span class="badge none">无奖励</span>';
     return '<div class="card" data-id="'+it.id+'">'
       + '<div class="head"><div class="qtxt"><span class="no">'+no+'</span><span>'+stripNo(it.q)+'</span></div>'
-      + '<div class="badges">'+badges+'<span class="more">查看答案<svg viewBox="0 0 24 24" fill="none" stroke="#cfeee6" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></div></div>'
+      + '<div class="badges">'+ansPairs+'<span class="more">查看完整答案<svg viewBox="0 0 24 24" fill="none" stroke="#cfeee6" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></div></div>'
       + '<div class="body"><div class="opts">'+optsHtml(it)+'</div></div></div>';
   }).join('');
   drop.classList.add('show');
