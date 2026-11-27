@@ -222,7 +222,7 @@ tbody tr:hover{background:rgba(95,214,176,.09)}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:.8rem;color:rgba(232,250,244,.8);margin-bottom:8px;letter-spacing:.08em}
 .field input{
-  width:100%;padding:14px 16px;border-radius:14px;color:#fff;font-size:.95rem;outline:none;
+  width:100%;padding:13px 16px;border-radius:14px;color:#fff;font-size:.82rem;outline:none;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35);transition:.2s;
@@ -230,7 +230,7 @@ tbody tr:hover{background:rgba(95,214,176,.09)}
 }
 .inp-wrap{position:relative}
 .inp-wrap .ph{position:absolute;left:16px;top:0;bottom:0;display:flex;align-items:center;overflow:hidden;max-width:calc(100% - 32px);pointer-events:none}
-.inp-wrap .ph-txt{white-space:nowrap;font-size:.95rem;color:rgba(230,250,244,.52)}
+.inp-wrap .ph-txt{white-space:nowrap;font-size:.82rem;color:rgba(230,250,244,.52)}
 .field input:focus{border-color:rgba(231,201,138,.65);box-shadow:0 0 0 3px rgba(231,201,138,.16),inset 0 1px 0 rgba(255,255,255,.45)}
 .result{margin-top:18px;padding:18px;border-radius:16px;background:rgba(95,214,176,.12);border:1px solid rgba(168,240,216,.45);text-align:center}
 .result .big{font-family:"Noto Serif SC",serif;font-size:1.9rem;color:#eafff8;text-shadow:0 0 22px rgba(95,214,176,.6)}
@@ -400,9 +400,9 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
   <div class="section glass">
     <div class="bonus-head">
       <div><h2 style="margin:0">修炼加成</h2><p class="note" style="margin:4px 0 0">可根据自己的加成调整</p></div>
-      <div style="text-align:right"><div class="tot" id="bonusTot">+0%</div><button id="bonusToggle" style="background:none;border:0;color:var(--jade-soft);cursor:pointer;font-size:.76rem">收起</button></div>
+      <div style="text-align:right"><div class="tot" id="bonusTot">+0%</div><button id="bonusToggle" style="background:none;border:0;color:var(--jade-soft);cursor:pointer;font-size:.76rem">展开</button></div>
     </div>
-    <div id="bonusBody">
+    <div id="bonusBody" style="display:none">
       <div class="bonus-item" data-key="yugu">
         <div class="bi-top"><b>玉骨</b><span class="st">未启用</span></div>
         <div class="slider-row"><span class="lab">阶</span><input type="range" min="0" max="5" step="1" value="0" data-max="5"><span class="val">0 / 5</span></div>
@@ -699,7 +699,7 @@ $("histToggle").addEventListener("click",function(){
   histOpen=!histOpen;$("histList").style.display=histOpen?"":"none";this.textContent=histOpen?"收起":"展开";
 });
 $("histClear").addEventListener("click",function(){saveHist([]);renderHist()});
-var bonusOpen=true;
+var bonusOpen=false;
 $("bonusToggle").addEventListener("click",function(){
   bonusOpen=!bonusOpen;
   $("bonusBody").style.display=bonusOpen?"":"none";
