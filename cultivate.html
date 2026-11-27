@@ -266,6 +266,11 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
 .lvl-head .nm{flex:1}
 .lvl-head .nm b{display:block;font-family:"Noto Serif SC",serif;font-size:1.25rem;color:#fff;letter-spacing:.05em}
 .lvl-head .nm span{font-size:.78rem;color:var(--muted)}
+.calc .card-h2{font-family:"Noto Serif SC",serif;font-size:1.04rem;margin:0 0 12px;letter-spacing:.06em;color:#fff;display:flex;align-items:center;gap:9px;text-shadow:0 1px 3px rgba(0,0,0,.42)}
+.calc .card-h2::before{content:"";width:3px;height:16px;border-radius:2px;background:linear-gradient(180deg,var(--gold),var(--jade));box-shadow:0 0 10px rgba(231,201,138,.6)}
+.big{display:flex;align-items:baseline}
+.big .lv-unit{font-size:.95rem;font-weight:500;color:var(--jade-soft);margin-left:5px;opacity:.85}
+.split{height:1px;margin:18px 0 16px;background:linear-gradient(90deg,transparent,rgba(231,201,138,.4),transparent)}
 .lvl-nav{display:flex;gap:12px}
 .lvl-nav button{flex:1;padding:13px 0;border-radius:14px;font-size:.92rem;cursor:pointer;color:#eafff8;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);transition:.22s}
@@ -337,10 +342,11 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
     <div class="ornament"><i></i><b></b><i></i></div>
   </div>
 
-  <!-- 当前修为 -->
-  <div class="calc glass">
+  <!-- 当前修为 + 当前修炼速度（合并） -->
+  <div class="calc glass" style="margin-bottom:12px">
+    <h2 class="card-h2">当前修为</h2>
     <div class="lvl-head">
-      <div class="big" id="lvlNo">1</div>
+      <div class="big"><span id="lvlNo">1</span><span class="lv-unit">级</span></div>
       <div class="nm"><b id="lvlName">凡人一级</b><span id="lvlNext">下一境界：练气二级</span></div>
     </div>
     <input type="range" id="lvlRange" min="1" max="18" step="1" value="1" style="width:100%;accent-color:var(--jade)">
@@ -348,10 +354,7 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
       <button id="prevLvl">上一级</button>
       <button id="nextLvl" class="on">下一级</button>
     </div>
-  </div>
-
-  <!-- 当前修炼速度 -->
-  <div class="section glass">
+    <div class="split"></div>
     <div class="speed-sum">
       <div><h2 style="margin:0 0 4px">当前修炼速度</h2><div class="sub" id="speedSub">基础 1 + 加成 0</div></div>
       <div class="v"><span id="speedView">1</span> <small>/ 秒</small></div>
