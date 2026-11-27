@@ -413,17 +413,37 @@ function applySearch(v){
 input.addEventListener('keydown', e=>{ if(e.key === 'Enter') applySearch(input.value); });
 setInterval(()=>applySearch(input.value), 300);
 clr.addEventListener('click', ()=>{ input.value=''; state.kw=''; clr.style.display='none'; state.shown=PAGE; render(); renderDrop(); input.focus(); });
-drop.addEventListener('click', e=>{
-  const di=e.target.closest('.card'); if(!di) return;
-  const id=Number(di.dataset.id);
+function locateCard(id){
   state.open.add(id);
+  const src = DATA.find(x=>x.id===id);
+  if(state.reward!=='全部' && src && !rewardsOf(src).includes(state.reward)) state.reward='全部';
   let guard=0;
-  while(!document.querySelector('.card[data-id="'+id+'"]') && state.shown<DATA.length && guard<12){ state.shown+=PAGE; render(); guard++; }
+  while(!document.querySelector('#list .card[data-id="'+id+'"]') && state.shown<DATA.length && guard<12){ state.shown+=PAGE; render(); guard++; }
   render();
   drop.classList.remove('show');
-  const card=document.querySelector('.card[data-id="'+id+'"]');
-  if(card) card.scrollIntoView({behavior:'smooth',block:'center'});
-});
+  drop.innerHTML='';
+  input.blur();
+  const pick=()=>{
+    const card=document.querySelector('#list .card[data-id="'+id+'"]');
+    if(card){
+      card.classList.add('open');
+      card.scrollIntoView({behavior:'auto',block:'center'});
+    }
+  };
+  requestAnimationFrame(pick);
+  setTimeout(pick, 120);
+}
+function onPick(e){
+  const di=e.target.closest('.card'); if(!di) return;
+  e.preventDefault(); e.stopPropagation();
+  locateCard(Number(di.dataset.id));
+}
+drop.addEventListener('click', onPick);
+drop.addEventListener('touchend', e=>{
+  const di=e.target.closest('.card'); if(!di) return;
+  e.preventDefault(); onPick(e);
+}, {passive:false});
+document.addEventListener('pointerdown', e=>{ const t=e.target&&e.target.closest?e.target.closest('.search-box'):null; if(!t) drop.classList.remove('show'); });
 document.addEventListener('mousedown', e=>{ const t=e.target&&e.target.closest?e.target.closest('.search-box'):null; if(!t) drop.classList.remove('show'); });
 input.addEventListener('focus', ()=>{ if(state.kw.trim()) renderDrop(); });
 document.querySelectorAll('.js-goto').forEach(el=>el.addEventListener('click',()=>{const t=document.getElementById(el.dataset.goto);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
