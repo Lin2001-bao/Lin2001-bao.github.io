@@ -124,6 +124,14 @@ body::after{
 .search-box input:focus{background:rgba(255,255,255,.16);border-color:rgba(231,201,138,.62);box-shadow:0 0 0 3px rgba(231,201,138,.18),0 8px 26px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.5)}
 .search-box .ico{position:absolute;left:19px;top:50%;transform:translateY(-50%);width:17px;height:17px;opacity:.8;pointer-events:none}
 .search-box .clr{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:33px;height:33px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#e9fbf5;font-size:15px;cursor:pointer;display:none}
+.search-drop{position:absolute;left:0;right:0;top:calc(100% + 10px);z-index:60;display:none;flex-direction:column;gap:2px;max-height:320px;overflow-y:auto;padding:8px;border-radius:16px;background:linear-gradient(180deg,rgba(10,28,27,.94),rgba(5,16,17,.96));border:1px solid rgba(231,201,138,.35);box-shadow:0 18px 44px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.18);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.search-drop.show{display:flex}
+.di{display:flex;gap:10px;align-items:flex-start;padding:10px 11px;border-radius:12px;cursor:pointer}
+.di:hover{background:rgba(95,214,176,.14)}
+.di .dq{flex:1;color:#fff;font-size:.84rem;line-height:1.5;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.di .da{flex:0 0 auto;align-self:center;font-size:.74rem;font-weight:700;color:#03150f;background:rgba(111,240,182,.9);border-radius:8px;padding:4px 10px;white-space:nowrap}
+.di .da .rw{display:block;font-weight:400;color:rgba(3,21,15,.82);font-size:.66rem;margin-top:1px}
+.di-empty{padding:12px 11px;font-size:.8rem;color:rgba(232,250,244,.7);text-align:center}
 
 .rtip{text-align:center;font-size:.8rem;color:rgba(232,250,244,.86);min-height:1.4em;margin:4px 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
 .rtip b{color:var(--gold-soft);font-weight:600}
@@ -281,6 +289,7 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
     <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#d5fff0" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <input id="q" type="text" placeholder="搜题目或选项，比如「灵泉」「藏宝图」" autocomplete="off">
     <button class="clr" id="clr" title="清空">✕</button>
+    <div class="search-drop" id="drop"></div>
   </div>
 
   <div class="stats">
@@ -374,11 +383,34 @@ document.getElementById('list').addEventListener('click', e=>{
 });
 const input = document.getElementById('q');
 const clr = document.getElementById('clr');
+const drop = document.getElementById('drop');
+function matchKw(it, kw){
+  if(it.q.toLowerCase().includes(kw)) return true;
+  return it.opts.some(o=>o.text.toLowerCase().includes(kw));
+}
+function renderDrop(){
+  const kw = state.kw.trim().toLowerCase();
+  if(!kw){ drop.classList.remove('show'); drop.innerHTML=''; return; }
+  const rows = DATA.filter(it=>matchKw(it, kw));
+  if(!rows.length){
+    drop.innerHTML = '<div class="di-empty">无匹配题目，换个关键词试试</div>';
+    drop.classList.add('show'); return;
+  }
+  drop.innerHTML = rows.slice(0,8).map(it=>{
+    const correct = it.opts.filter(o=>o.correct);
+    const labels = correct.map(o=>o.label).join('');
+    const rws = [...new Set(correct.map(o=>o.reward).filter(Boolean))];
+    const rw = rws.length ? rws.join('·') : '';
+    return '<div class="di" data-id="'+it.id+'"><div class="dq">'+stripNo(it.q)+'</div>'
+      + '<div class="da">'+labels+(rw?'<span class="rw">'+rw+'</span>':'')+'</div></div>';
+  }).join('');
+  drop.classList.add('show');
+}
 function applySearch(v){
   v = v || ''; if(v === state.kw) return;
   state.kw = v; state.shown = PAGE;
   clr.style.display = v ? 'block' : 'none';
-  render();
+  render(); renderDrop();
   const listEl = document.getElementById('list');
   const top = listEl.getBoundingClientRect().top + window.scrollY - 90;
   if(window.scrollY > top) window.scrollTo({ top: top, behavior:'smooth' });
@@ -388,7 +420,20 @@ function applySearch(v){
 });
 input.addEventListener('keydown', e=>{ if(e.key === 'Enter') applySearch(input.value); });
 setInterval(()=>applySearch(input.value), 300);
-clr.addEventListener('click', ()=>{ input.value=''; state.kw=''; clr.style.display='none'; state.shown=PAGE; render(); input.focus(); });
+clr.addEventListener('click', ()=>{ input.value=''; state.kw=''; clr.style.display='none'; state.shown=PAGE; render(); renderDrop(); input.focus(); });
+drop.addEventListener('click', e=>{
+  const di=e.target.closest('.di'); if(!di) return;
+  const id=Number(di.dataset.id);
+  state.open.add(id);
+  let guard=0;
+  while(!document.querySelector('.card[data-id="'+id+'"]') && state.shown<DATA.length && guard<12){ state.shown+=PAGE; render(); guard++; }
+  render();
+  drop.classList.remove('show');
+  const card=document.querySelector('.card[data-id="'+id+'"]');
+  if(card) card.scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.addEventListener('mousedown', e=>{ const t=e.target&&e.target.closest?e.target.closest('.search-box'):null; if(!t) drop.classList.remove('show'); });
+input.addEventListener('focus', ()=>{ if(state.kw.trim()) renderDrop(); });
 document.querySelectorAll('.js-goto').forEach(el=>el.addEventListener('click',()=>{const t=document.getElementById(el.dataset.goto);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
 document.getElementById('load').addEventListener('click', ()=>{ state.shown += PAGE; render(); });
 render();
