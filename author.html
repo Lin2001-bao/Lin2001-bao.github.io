@@ -292,8 +292,9 @@ footer{
 .row .v{flex:1;text-align:left;font-size:.9rem;color:#fff;font-family:"Noto Serif SC",serif}
 .row .copy{
   flex:0 0 auto;font-size:.72rem;color:#d9fff2;padding:5px 11px;border-radius:8px;cursor:pointer;
-  background:rgba(95,214,176,.18);border:1px solid rgba(168,240,216,.45);
+  background:rgba(95,214,176,.18);border:1px solid rgba(168,240,216,.45);text-decoration:none;
 }
+.row .copy.qq{color:#f7e8c8;background:rgba(231,201,138,.18);border-color:rgba(231,201,138,.5)}
 
 /* 业务 */
 .biz{max-width:620px;margin:0 auto}
@@ -362,6 +363,7 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
     <div class="info">
       <div class="row"><span class="k">会玩ID</span><span class="v">Soi666</span><span class="copy" onclick="cp(this,'Soi666')">复制</span></div>
       <div class="row"><span class="k">微　信</span><span class="v">Star_Lin24</span><span class="copy" onclick="cp(this,'Star_Lin24')">复制</span></div>
+      <div class="row"><span class="k">Q　　Q</span><span class="v">2195559670</span><span class="copy" onclick="cp(this,'2195559670')">复制</span><a class="copy qq" id="qqBtn" href="#" rel="noopener">唤起QQ</a></div>
     </div>
   </div>
 
@@ -399,6 +401,15 @@ function fallback(v, done){
   try { document.execCommand('copy'); done(); } catch(e) {}
   document.body.removeChild(ta);
 }
+(function(){
+  var QQ='2195559670';
+  var mob=/Android|iPhone|iPad|iPod|HarmonyOS|Mobile/i.test(navigator.userAgent);
+  var url=mob
+    ? 'mqqapi://card/show_pslcard?src_type=internal&version=1&uin='+QQ+'&card_type=person&source=sharecard'
+    : 'tencent://message/?uin='+QQ+'&Menu=yes';
+  var b=document.getElementById('qqBtn');
+  if(b){ b.href=url; }
+})();
 </script>
 
   
