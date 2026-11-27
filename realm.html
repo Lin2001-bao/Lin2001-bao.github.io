@@ -284,9 +284,12 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.04)!important}
 tbody tr:hover{background:rgba(95,214,176,.12)!important}
 </style>
 <style id="calc-btn">
-.calc-btn{display:inline-block;font-size:.72rem;letter-spacing:.04em;padding:5px 12px;border-radius:999px;color:#eafff8;text-decoration:none;background:linear-gradient(180deg,rgba(95,214,176,.24),rgba(95,214,176,.1));border:1px solid rgba(168,240,216,.42);white-space:nowrap}
-.calc-btn:active{transform:scale(.94)}
-.h2-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.h2-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.h2-row h2{margin:0}
+.calc-btn{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;letter-spacing:.05em;padding:7px 14px;border-radius:999px;color:var(--gold-soft);text-decoration:none;white-space:nowrap;background:linear-gradient(180deg,rgba(231,201,138,.16),rgba(95,214,176,.12));border:1px solid rgba(231,201,138,.45);box-shadow:0 2px 10px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.calc-btn:hover{transform:translateY(-1px);border-color:rgba(243,224,182,.7);box-shadow:0 4px 16px rgba(231,201,138,.28),inset 0 1px 0 rgba(255,255,255,.22)}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn .cb-ico{font-size:.82rem;line-height:1}
 </style>
 
 
@@ -306,7 +309,7 @@ tbody tr:hover{background:rgba(95,214,176,.12)!important}
     <div class="ornament"><i></i><b></b><i></i></div>
   </div>
   <div class="section glass">
-    <div class="h2-row"><h2>各阶段修为数值</h2><a class="calc-btn" href="cultivate.html">修为计算</a></div>
+    <div class="h2-row"><h2>各阶段修为数值</h2><a class="calc-btn" href="cultivate.html"><span class="cb-ico">✨</span>修为计算</a></div>
     <div class="tbl-wrap"><table><thead><tr><th>境界</th><th>前期</th><th>中期</th><th>后期</th></tr></thead><tbody><tr><td>凡人一级</td><td>15</td><td>25</td><td>50</td></tr><tr><td>练气二级</td><td>100</td><td>425</td><td>850</td></tr><tr><td>筑基三级</td><td>5,100</td><td>12,750</td><td>23,000</td></tr><tr><td>结丹四级</td><td>24,230</td><td>25,500</td><td>42,500</td></tr><tr><td>元婴五级</td><td>46,500</td><td>48,800</td><td>52,300</td></tr><tr><td>出窍六级</td><td>53,800</td><td>56,500</td><td>59,000</td></tr><tr><td>化神七级</td><td>62,300</td><td>65,400</td><td>68,700</td></tr><tr><td>合体八级</td><td>72,100</td><td>75,700</td><td>159,000</td></tr><tr><td>洞虚九级</td><td>167,000</td><td>175,000</td><td>184,000</td></tr><tr><td>大乘十级</td><td>193,000</td><td>203,000</td><td>213,000</td></tr><tr><td>渡劫十一级</td><td>250,000</td><td>270,000</td><td>300,000</td></tr><tr><td>人仙十二级</td><td>1,000,000</td><td>820,000</td><td>860,000</td></tr><tr><td>真仙十三级</td><td>880,000</td><td>900,000</td><td>905,700</td></tr><tr><td>金仙十四级</td><td>922,000</td><td>938,700</td><td>955,500</td></tr><tr><td>上仙十五级</td><td>972,690</td><td>990,000</td><td>1,008,040</td></tr><tr><td>仙君十六级</td><td>2,400,000</td><td>1,800,000</td><td>1,850,000</td></tr><tr><td>仙尊十七级</td><td>1,950,000</td><td>2,145,000</td><td>2,360,000</td></tr><tr><td>仙帝十八级</td><td>6,000,000</td><td>6,700,000</td><td>6,700,000</td></tr></tbody></table></div>
     <p class="note">数值为进入该阶段小境界所需修为，实际以游戏内显示为准。</p>
   </div>
