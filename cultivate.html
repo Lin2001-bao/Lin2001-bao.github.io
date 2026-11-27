@@ -288,6 +288,9 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
 .speed-sum .v{font-family:"Noto Serif SC",serif;font-size:1.7rem;color:var(--jade-soft);text-shadow:0 0 18px rgba(95,214,176,.5)}
 .speed-sum .v small{font-size:.85rem;color:var(--muted);font-family:"Noto Sans SC",sans-serif}
 .speed-sum .sub{font-size:.76rem;color:var(--muted)}
+.speed-sum .v.clickable{cursor:pointer;transition:color .2s}
+.speed-sum .v.clickable:hover{color:#fff}
+.speed-hint{font-size:.74rem;color:var(--muted);margin-top:6px}
 /* 加成面板 */
 .bonus-head{display:flex;justify-content:space-between;align-items:center}
 .bonus-head .tot{font-family:"Noto Serif SC",serif;font-size:1.15rem;color:var(--gold-soft)}
@@ -357,7 +360,20 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
     <div class="split"></div>
     <div class="speed-sum">
       <div><h2 style="margin:0 0 4px">当前修炼速度</h2><div class="sub" id="speedSub">基础 1 + 加成 0</div></div>
-      <div class="v"><span id="speedView">1</span> <small>/ 秒</small></div>
+      <div class="v clickable" id="speedViewWrap" title="点一下修改速度"><span id="speedView">1</span> <small>/ 秒</small></div>
+    </div>
+    <div class="speed-hint">点一下上方速度数字，可直接修改</div>
+    <div class="row2" style="margin-top:14px">
+      <div class="field">
+        <label>修炼速度</label>
+        <input id="speed" type="number" min="0" step="1" value="1" inputmode="numeric">
+        <div class="tip" style="margin-top:6px">可手动输入；改加成后自动更新</div>
+      </div>
+      <div class="field">
+        <label>已修为</label>
+        <input id="cur" type="number" min="0" step="1" value="0" inputmode="numeric">
+        <div class="tip" style="margin-top:6px">按游戏进度条填写</div>
+      </div>
     </div>
   </div>
 
@@ -370,23 +386,6 @@ tbody tr:nth-child(even){background:rgba(255,255,255,.045)!important}
       <button data-p="0">前期</button>
       <button data-p="1" class="on">中期</button>
       <button data-p="2">后期</button>
-    </div>
-  </div>
-
-  <!-- 当前进度 -->
-  <div class="section glass">
-    <h2>当前进度</h2>
-    <div class="row2">
-      <div class="field">
-        <label>修炼速度</label>
-        <input id="speed" type="number" min="0" step="1" value="1" inputmode="numeric">
-        <div class="tip" style="margin-top:6px">可手动输入；改加成后自动更新</div>
-      </div>
-      <div class="field">
-        <label>已修为</label>
-        <input id="cur" type="number" min="0" step="1" value="0" inputmode="numeric">
-        <div class="tip" style="margin-top:6px">按游戏进度条填写</div>
-      </div>
     </div>
   </div>
 
@@ -643,6 +642,7 @@ phaseTabs.querySelectorAll("button").forEach(function(b){
 });
 document.querySelectorAll("#gongfa input").forEach(function(c){c.addEventListener("change",refreshBonus)});
 speedInput.addEventListener("input",function(){speedView.textContent=speedInput.value||"0"});
+$("speedViewWrap").addEventListener("click",function(){speedInput.focus();speedInput.select();});
 $("go").addEventListener("click",calc);
 $("reset").addEventListener("click",function(){
   state.level=1;state.phase=1;curInput.value=0;
